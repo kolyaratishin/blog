@@ -1,7 +1,5 @@
-package com.blog.blog.controllers;
+package com.blog.blog.controller;
 
-import com.blog.blog.repositories.PostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +13,10 @@ public class HomeController {
     @GetMapping("/about")
     public String about(Model model) {
         return "about";
+    }
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "login";
     }
 
 }

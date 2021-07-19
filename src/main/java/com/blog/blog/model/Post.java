@@ -1,17 +1,24 @@
 package com.blog.blog.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
     @Id
     @GeneratedValue
-    Long id;
-    String title,anons,full_text;
-    int views;
+    private Long id;
+
+    private String title;
+
+    private String anons;
+
+    private String full_text;
+
+    private int views;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User author;
 
     public Post() {
     }
@@ -21,6 +28,7 @@ public class Post {
         this.anons = anons;
         this.full_text = full_text;
     }
+
 
     public Long getId() {
         return id;
@@ -60,5 +68,13 @@ public class Post {
 
     public void setViews(int views) {
         this.views = views;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

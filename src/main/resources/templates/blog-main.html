@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Блог сайта</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,6 +15,7 @@
             <h3 th:text="${post.title}"/>
             <p th:text="${post.anons}"/>
             <a th:href="'/blog/' + ${post.id}" class="btn btn-warning">Детальнее</a>
+            <p th:text="'Author: ' + ${post.author.username}"/>
         </div>
     </div>
 

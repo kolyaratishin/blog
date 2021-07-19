@@ -7,6 +7,10 @@
             <a class="p-2 text-dark" href="/blog/add">Добавить статью</a>
             <a class="p-2 text-dark" href="/about">Про нас</a>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Войти</a>
+        <a sec:authorize="isAnonymous()" class="btn btn-outline-primary" href="/login">Войти</a>
+        <a sec:authorize="isAnonymous()" class="btn btn-outline-primary" href="/registration">Зареєструватися</a>
+        <form th:action="@{/logout}" method="post">
+            <input sec:authorize="isAuthenticated()"  class="btn btn-outline-primary" type="submit" value="Sign Out"/>
+        </form>
     </div>
 </div>
